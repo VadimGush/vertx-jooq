@@ -9,8 +9,6 @@ import io.vertx.core.Future;
 import io.vertx.core.Handler;
 import io.vertx.core.Promise;
 import io.vertx.core.Vertx;
-import io.vertx.core.impl.ContextInternal;
-import io.vertx.core.impl.future.PromiseImpl;
 import org.jooq.*;
 import org.jooq.Record;
 import org.jooq.impl.DSL;
@@ -35,9 +33,11 @@ public class JDBCClassicGenericQueryExecutor extends AbstractQueryExecutor imple
     }
 
     protected <X> Future<X> executeBlocking(Handler<Promise<X>> blockingCodeHandler){
-        Promise<X> promise = new PromiseImpl<>((ContextInternal) vertx.getOrCreateContext());
-        vertx.executeBlocking(blockingCodeHandler,false,promise);
-        return promise.future();
+        final var promise = Promise.<X>promise();
+        return vertx.executeBlocking(() -> {
+            blockingCodeHandler.handle(promise);
+            return promise.future();
+        }, false).compose(Function.identity());
     }
 
     @Override

@@ -8,22 +8,11 @@
         <module>vertx-jooq-shared</module>
         <module>vertx-jooq-classic</module>
         <module>vertx-jooq-classic-jdbc</module>
-        <module>vertx-jooq-rx</module>
-        <module>vertx-jooq-rx3</module>
-        <module>vertx-jooq-rx-jdbc</module>
         <module>vertx-jooq-generate</module>
-        <module>vertx-jooq-classic-reactive</module>
-        <module>vertx-jooq-shared-reactive</module>
-        <module>vertx-jooq-rx-reactive</module>
-        <module>vertx-jooq-rx3-reactive</module>
-        <module>vertx-jooq-rx3-jdbc</module>
-        <module>vertx-jooq-mutiny</module>
-        <module>vertx-jooq-mutiny-reactive</module>
-        <module>vertx-jooq-mutiny-jdbc</module>
     </modules>
     <properties>
         <jooq.version>3.17.3</jooq.version>
-        <vertx.version>4.3.3</vertx.version>
+        <vertx.version>5.0.6</vertx.version>
         <jackson.databind.version>2.13.2.1</jackson.databind.version>
         <hsqldb.version>2.6.1</hsqldb.version>
         <junit.version>4.13.2</junit.version>
@@ -41,7 +30,7 @@
         <mutiny.bingings.version>2.26.0</mutiny.bingings.version>
     </properties>
     <groupId>io.github.jklingsporn</groupId>
-    <version>6.5.5</version>
+    <version>6.5.5.vertx5.0</version>
     <artifactId>vertx-jooq</artifactId>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>A jOOQ-CodeGenerator to create vertxified DAOs and POJOs</description>
